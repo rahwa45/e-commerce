@@ -1,10 +1,20 @@
-// OrderConfirmation.jsx
-import React from "react";
-import { useLocation } from "react-router-dom";
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const OrderConfirmation = () => {
-  const location = useLocation();
-  const order = location.state?.order;
+  const router = useRouter();
+  const [order, setOrder] = useState(null);
+
+  // Access order data from URL query or local storage
+  useEffect(() => {
+    const orderData = JSON.parse(localStorage.getItem("order")) || null;
+    if (orderData) {
+      setOrder(orderData);
+    } else {
+      router.push("/"); // Redirect if no order found
+    }
+  }, [router]);
 
   if (!order) {
     return <p>No order found.</p>;
