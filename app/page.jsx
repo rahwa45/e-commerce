@@ -14,7 +14,7 @@ const Home = () => {
             {/* Left section (could be logo, copyright, etc.) */}
             <div className="text-center sm:text-left">
               <span>
-                &copy; {new Date().getFullYear()} Jewelry Shop. All rights
+                &copy; {new Date().getFullYear()} Jewelry E-commerce Shop. All rights
                 reserved.
               </span>
             </div>
