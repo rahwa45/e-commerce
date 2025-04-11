@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-
-const Checkout = () => {
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Navbar from "../nav/nav";
+const CheckoutPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const router = useRouter();
@@ -48,59 +49,68 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 ">
-      <h1 className="text-center text-2xl font-bold mb-4">Checkout</h1>
+    <div className="min-h-screen  pt-20 px-4 sm:px-8">
+      <Navbar />
+      <h1 className="text-4xl font-bold  text-gray-800 mb-10 text-center">
+        Checkout
+      </h1>
 
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <div className="text-center text-gray-600 text-lg">
+          Your cart is empty.
+        </div>
       ) : (
-        <div>
-          {cartItems.map((item) => (
+        <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg space-y-6">
+          {cartItems.map((item, index) => (
             <div
-              key={item.id}
-              className="flex justify-between items-center mb-4 p-4 border rounded-lg"
+              key={`${item.id}-${index}`}
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-6 border-b pb-6"
             >
               <img
                 src={item.urls?.small || "/default-image.png"}
                 alt={item.description || "Product Image"}
-                className="w-20 h-16 object-cover rounded-lg"
+                className="w-40 h-40 object-cover rounded-md shadow-sm"
               />
-              <div className="flex-1 ml-4">
-                <p className="text-lg font-semibold">{item.description}</p>
-                <p className="text-gray-600">${item.price}</p>
+              <div className="flex-1">
+                <p className="text-lg font-semibold text-gray-800 mb-1">
+                  {item.description || "Untitled Item"}
+                </p>
+                <p className="text-gray-600 mb-2">${item.price}</p>
                 <input
+                  style={{ backgroundColor: "white", color: "black" }}
                   type="number"
                   min="1"
                   value={item.quantity || 1}
                   onChange={(e) =>
                     handleQuantityChange(item.id, e.target.value)
                   }
-                  className="w-16 border p-1 text-center mt-2"
+                  className="border border-gray-300 rounded-md px-3 py-2 w-24"
                 />
               </div>
               <button
-                className="bg-red-500 text-white p-2 rounded"
                 onClick={() => handleRemoveItem(item.id)}
+                className="text-red-500 hover:text-red-700 font-medium"
               >
                 Remove
               </button>
             </div>
           ))}
 
-          <p className="text-lg font-semibold mt-4">
-            Total: ${totalPrice.toFixed(2)}
-          </p>
-
-          <button
-            className="mt-6 bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-400"
-            onClick={handlePlaceOrder}
-          >
-            Place Order
-          </button>
+          <div className="flex justify-between items-center pt-4">
+            <p className="text-xl font-bold text-gray-800">
+              Total: ${totalPrice.toFixed(2)}
+            </p>
+            <button
+              onClick={handlePlaceOrder}
+              className="bg-gradient-to-r from-amber-700 to-yellow-300 text-white font-semibold tracking-wide px-7 py-3 rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none cursor-pointer"
+            >
+              Place Order
+            </button>
+          </div>
         </div>
       )}
     </div>
   );
 };
 
-export default Checkout;
+export default CheckoutPage;
