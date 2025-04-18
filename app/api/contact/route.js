@@ -7,15 +7,15 @@ export async function POST(req) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "rahwa3113@gmail.com",
-      pass: "qzvyiffaxqzvzhex",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   // Set up email data
   const mailOptions = {
     from: email,
-    to: `${email}, rahwaraki11@gmail.com`,
+    to: `${email}`,
     subject: `Contact Form Submission from ${name}`,
     text: message,
   };

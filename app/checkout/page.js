@@ -1,4 +1,9 @@
 "use client";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../nav/nav";
@@ -34,18 +39,21 @@ const CheckoutPage = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  const handlePlaceOrder = () => {
-    if (cartItems.length === 0) {
-      alert("Your cart is empty!");
-      return;
+  const handlePlaceOrder = async () => {
+    const stripe = await stripePromise;
+
+    const res = await fetch("/api/checkout_sessions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cartItems }),
+    });
+
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Failed to create Stripe session.");
     }
-
-    alert("Order placed successfully!");
-    localStorage.removeItem("cart");
-    setCartItems([]);
-
-    // Redirect to the order confirmation page (thank-you page)
-    router.push("/thankyou"); // Ensure this path is correct and matches your file structure
   };
 
   return (
