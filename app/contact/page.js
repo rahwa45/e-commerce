@@ -44,10 +44,10 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start h-screen bg-[#F0E8E8] p-10 overflow-auto"> {/* Change overflow-hidden to overflow-auto */}
+    <div className="flex flex-col md:flex-row justify-start items-start h-screen bg-[#F0E8E8] p-10 overflow-auto">
       {/* Back Button */}
       <button
-        onClick={() => router.push("/")} // Navigate to home page
+        onClick={() => router.push("/")}
         className="mb-4 text-2xl font-bold text-gray-700"
       >
         &#8592; {/* Unicode arrow character */}
@@ -55,7 +55,6 @@ export default function ContactPage() {
       {/* Left Section: Contact Information */}
       <div className="w-full md:w-1/2 pr-8 flex flex-col justify-center">
         <h1 className="text-4xl font-extrabold mb-4">Contact Us</h1>
-
         <p className="mb-2 mt-20">
           We’re here to assist you! If you have any questions or need
           assistance, please feel free to reach out.
@@ -81,15 +80,14 @@ export default function ContactPage() {
       </div>
 
       <div
-        className={`${styles.contactPage} w-full md:w-1/2 flex flex-col justify-center`}
+        className={`${styles.contactPage} w-full md:w-1/2 flex flex-col items-start`}
       >
         <h1 className="text-2xl font-extrabold mb-4">Contact Form</h1>
         {status && <p className="mb-2">{status}</p>}
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+        <form onSubmit={handleSubmit} className="flex flex-col w-full">
+          <div className="mb-4 w-full">
             <label htmlFor="name">Name:</label>
             <input
-              style={{ backgroundColor: "white", color: "black" }}
               type="text"
               id="name"
               name="name"
@@ -99,10 +97,9 @@ export default function ContactPage() {
               className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="email">Email:</label>
             <input
-              style={{ backgroundColor: "white", color: "black" }}
               type="email"
               id="email"
               name="email"
@@ -112,10 +109,9 @@ export default function ContactPage() {
               className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="message">Message:</label>
             <textarea
-              style={{ backgroundColor: "white", color: "black" }}
               id="message"
               name="message"
               value={formData.message}

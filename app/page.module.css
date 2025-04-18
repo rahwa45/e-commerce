@@ -23,11 +23,21 @@
   border: 2px solid black;
 }
 .contactPage {
+
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Aligns the form vertically */
-  height: auto; /* Ensures content height is auto */
-  padding: 20px; /* Optional: Add padding for aesthetics */
+  align-items: flex-start; /* Align items to the left */
+}
+@media (max-width: 767px) {
+  .contactPage {
+    overflow-y: auto; /* Allow vertical scroll on small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .contactPage {
+    overflow-y: hidden; /* No vertical scroll on large screens */
+  }
 }
 
 
