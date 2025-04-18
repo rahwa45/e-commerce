@@ -22,6 +22,18 @@
 .logo:hover {
   border: 2px solid black;
 }
+.contactPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Aligns the form vertically */
+  height: auto; /* Ensures content height is auto */
+  padding: 20px; /* Optional: Add padding for aesthetics */
+}
+
+
+
+
+
 
 .main {
   display: flex;
