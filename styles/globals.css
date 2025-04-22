@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff; /* White background */
+    --background: #f0e8e8;
     --foreground: #171717;
   }
 }
@@ -62,4 +62,43 @@ a {
   html {
     color-scheme: dark;
   }
+}
+/* Light Mode */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #0f0d0d;
+  color: white;
+}
+
+/* Modify other elements as needed */
+.dark-mode .navbar {
+  background-color: #333;
+}
+
+.dark-mode .product-card {
+  background-color: #222;
+  color: white;
+}
+.dark-mode .contactPage {
+  background-color: #222;
+  color: white;
+}
+.dark-mode .signupPage {
+  background-color: #222;
+  color: white;
+}
+.dark-mode .loginPage {
+  background-color: #222;
+  color: white;
+}
+.dark-mode .humbergur {
+  color: black;
+}
+footer {
+  margin-top: 40px; /* Space between footer and page content */
 }

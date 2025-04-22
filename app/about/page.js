@@ -1,16 +1,16 @@
 "use client";
 import styles from "../page.module.css";
 import Image from "next/image";
+import Navbar from "../nav/nav";
 
 const Aboutpage = () => {
   return (
-    <div>
+    <div className="mb-20">
+      <Navbar />
       <h1
         style={{
-          gap: "0.5rem",
           fontSize: "4rem",
-          color: "black",
-          padding: "30px",
+
           textAlign: "center",
         }}
       >
@@ -32,11 +32,6 @@ const Aboutpage = () => {
 
         <Image src="/image4.jpg" width={480} height={380} alt="ring" />
       </div>
-      <a href="/contact">
-        <button className="bg-gradient-to-r from-amber-700 to-yellow-300 text-white font-semibold tracking-wide px-7 py-3 rounded-full shadow-md  transition-all duration-300 focus:outline-none cursor-pointer">
-          contact{" "}
-        </button>
-      </a>
     </div>
   );
 };

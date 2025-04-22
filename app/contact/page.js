@@ -1,8 +1,10 @@
 "use client";
 
 import styles from "../page.module.css"; // Ensure this path is correct
+
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import from next/navigation
+import Navbar from "../nav/nav";
 
 export default function ContactPage() {
   const router = useRouter(); // Initialize useRouter
@@ -44,17 +46,13 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-start items-start h-screen bg-[#F0E8E8] p-10 overflow-auto">
+    <div className="flex flex-col md:flex-row justify-start items-start h-screen p-10 overflow-auto contactPage">
+      <Navbar />
       {/* Back Button */}
-      <button
-        onClick={() => router.push("/")}
-        className="mb-4 text-2xl font-bold text-gray-700"
-      >
-        &#8592; {/* Unicode arrow character */}
-      </button>
+
       {/* Left Section: Contact Information */}
       <div className="w-full md:w-1/2 pr-8 flex flex-col justify-center">
-        <h1 className="text-4xl font-extrabold mb-4">Contact Us</h1>
+        <h1 className="text-4xl font-extrabold p-4">Contact Us</h1>
         <p className="mb-2 mt-20">
           We’re here to assist you! If you have any questions or need
           assistance, please feel free to reach out.
@@ -94,7 +92,7 @@ export default function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border border-gray-300 rounded bg-white"
             />
           </div>
           <div className="mb-4 w-full">
@@ -106,7 +104,7 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border border-gray-300 rounded bg-white"
             />
           </div>
           <div className="mb-4 w-full">
@@ -117,7 +115,7 @@ export default function ContactPage() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border border-gray-300 rounded text-black bg-white"
             />
           </div>
           <button

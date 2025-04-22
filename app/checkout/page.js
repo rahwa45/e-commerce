@@ -59,9 +59,7 @@ const CheckoutPage = () => {
   return (
     <div className="min-h-screen  pt-20 px-4 sm:px-8">
       <Navbar />
-      <h1 className="text-4xl font-bold  text-gray-800 mb-10 text-center">
-        Checkout
-      </h1>
+      <h1 className="text-4xl font-bold mb-10 text-center">Checkout</h1>
 
       {cartItems.length === 0 ? (
         <div className="text-center text-gray-600 text-lg">

@@ -98,12 +98,12 @@ const Products = () => {
           <nav aria-label="Main navigation">
             <Link
               href="/"
-              className="text-2xl font-bold border-2 border-transparent hover:border-black transition duration-300 p-1"
+              className="text-2xl font-bold border-2 border-transparent hover:border-black transition duration-300 p-1 text-black"
             >
               ambar
             </Link>
           </nav>
-          <div className="sm:hidden">
+          <div className="sm:hidden humbergur">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -207,13 +207,13 @@ const Products = () => {
                 alt={image.alt_description}
               />
               <div className="">
-                <p className="text-gray-800 text-lg font-semibold">
+                <p className=" text-lg font-semibold">
                   <strong>Price:</strong> ${image.price}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm ">
                   <strong>Category:</strong> {image.category}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm">
                   <strong>Description:</strong> {image.description}
                 </p>
                 <button

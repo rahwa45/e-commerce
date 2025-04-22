@@ -8,13 +8,15 @@ const Navbar = () => {
           ambar
         </Link>
         <div className="flex space-x-6 gap-4">
-          <Link href="/" className="text-black hover:font-semibold">
+          <Link href="/" className="hover:font-semibold">
             Home
           </Link>
 
-          <Link href="/products" className="text-black hover:font-normal">
+          <Link href="/products" className="hover:font-normal">
             Products
           </Link>
+          <Link href="/signup">SignUp/Signin</Link>
+          <button id="dark-mode-toggle">☀</button>
         </div>
       </div>
     </nav>
