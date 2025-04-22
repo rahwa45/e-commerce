@@ -13,5 +13,5 @@ export async function GET(req) {
   user.emailVerified = true;
   await user.save();
 
-  return Response.redirect("http://localhost:3000/login");
+  return Response.redirect("https://e-commerce-fgwd.vercel.app/login");
 }
