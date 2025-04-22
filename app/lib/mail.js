@@ -9,7 +9,7 @@ export const transporter = nodemailer.createTransport({
 });
 
 export const sendVerificationEmail = async (email, token) => {
-  const url = `http://localhost:3000/api/verify?token=${token}`;
+  const url = `https://e-commerce-fgwd.vercel.app/api/verify?token=${token}`;
 
   await transporter.sendMail({
     to: email,
