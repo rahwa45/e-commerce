@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
 
         {/* Links */}
-        <div className="flex gap-6 mb-4 sm:mb-0">
+        <div className="flex gap-6 mb-4 sm:mb-0 items-center">
           <Link href="/products" className="hover:text-yellow-300">
             Products
           </Link>

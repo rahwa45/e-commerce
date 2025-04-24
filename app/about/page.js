@@ -5,7 +5,7 @@ import Navbar from "../nav/nav";
 
 const Aboutpage = () => {
   return (
-    <div className="mb-20">
+    <div className="mb-20 mt-20">
       <Navbar />
       <h1
         style={{
