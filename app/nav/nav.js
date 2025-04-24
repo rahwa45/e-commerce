@@ -37,7 +37,10 @@ const Navbar = () => {
   return (
     <nav className="p-4 fixed top-0 w-full shadow-sm z-50 navbar">
       <div className="max-w-7xl mx-auto flex justify-between items-center font-bold ">
-        <Link href="/" className="text-2xl font-bold logo">
+        <Link
+          href="/"
+          className="text-2xl font-bold border-2 border-transparent hover:border-black "
+        >
           ambar
         </Link>
 

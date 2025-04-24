@@ -52,10 +52,7 @@ h1 {
 .back {
   margin-bottom: 0;
 }
-.logo:hover {
-  text-decoration: underline;
-}
-a {
+. a {
   color: inherit;
   text-decoration: none;
 }
