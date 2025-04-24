@@ -56,7 +56,7 @@ const Navbar = () => {
 
         {/* Desktop nav links */}
         <div className="hidden md:flex space-x-6 gap-4">
-          <Link href="/" className="hover:font-semibold">
+          <Link href="/" className="hover:font-normal">
             Home
           </Link>
           <Link href="/products" className="hover:font-normal">
